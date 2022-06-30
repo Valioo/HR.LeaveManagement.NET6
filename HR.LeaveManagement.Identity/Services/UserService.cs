@@ -47,6 +47,12 @@ namespace HR.LeaveManagement.Identity.Services
             };
         }
 
+        public async Task<EmployeeDetailsDto> GetEmployeeById(string userId)
+        {
+            var employee = await _userManager.FindByIdAsync(userId);
+            return mapper.Map<EmployeeDetailsDto>(employee);
+        }
+
         public async Task<List<Employee>> GetEmployees()
         {
             var employees = await _userManager.GetUsersInRoleAsync("Employee");
@@ -93,9 +99,6 @@ namespace HR.LeaveManagement.Identity.Services
             return response;
         }
 
-        Task<List<Employee>> IUserService.GetEmployees()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
