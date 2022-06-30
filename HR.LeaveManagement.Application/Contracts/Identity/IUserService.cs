@@ -16,5 +16,6 @@ namespace HR.LeaveManagement.Application.Contracts.Identity
         Task<List<Employee>> GetEmployees();
         Task<Employee> GetEmployee(string userId);
         Task<BaseCommandResponse> RegisterEmployee(RegisterEmployeeDto registerEmployeeDto);
+        Task<EmployeeDetailsDto> GetEmployeeById(string userId);
     }
 }
