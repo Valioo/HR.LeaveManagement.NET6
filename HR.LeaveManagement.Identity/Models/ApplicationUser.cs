@@ -7,6 +7,10 @@ namespace HR.LeaveManagement.Identity.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        public ApplicationUser()
+        {
+
+        }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
