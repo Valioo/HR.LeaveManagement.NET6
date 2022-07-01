@@ -41,6 +41,8 @@ namespace HR.LeaveManagement.Application.UnitTests.Services.Identity
         public static Mock<UserManager<ApplicationUser>> MockUserManager(ApplicationUser user)
         {
 			//
+			
+			
             var store = new Mock<IUserStore<ApplicationUser>>();
             var mgr = new Mock<UserManager<ApplicationUser>>(store.Object, null, null, null, null, null, null, null, null);
             mgr.Setup(x => x.FindByIdAsync(user.Id)).ReturnsAsync(user);
