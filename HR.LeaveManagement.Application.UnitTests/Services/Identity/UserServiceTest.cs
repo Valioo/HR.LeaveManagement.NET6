@@ -14,7 +14,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
-
 namespace HR.LeaveManagement.Application.UnitTests.Services.Identity
 {
     public class UserServiceTest
@@ -25,7 +24,6 @@ namespace HR.LeaveManagement.Application.UnitTests.Services.Identity
         private Mock<UserManager<ApplicationUser>> _mockUserManager;
         private Mock<IAuthService> _mockAuthService;
         private Mock<IMapper> _mockMapper;
-
         private ApplicationUser user = new ApplicationUser { Id = _id, FirstName = _firstName };
 
         public UserServiceTest()
@@ -54,7 +52,6 @@ namespace HR.LeaveManagement.Application.UnitTests.Services.Identity
 
             mgr.Setup(x => x.FindByIdAsync(user.Id)).ReturnsAsync(user);
             mgr.Setup(x => x.Users).Returns(() => (new List<ApplicationUser>()).AsQueryable<ApplicationUser>());
-
             return mgr;
         }
         private static UserManager<ApplicationUser> CreateUserManager()
@@ -73,9 +70,7 @@ namespace HR.LeaveManagement.Application.UnitTests.Services.Identity
             idOptions.Password.RequireNonAlphanumeric = true;
             idOptions.Password.RequireUppercase = true;
             idOptions.Password.RequiredLength = 6;
-
             idOptions.SignIn.RequireConfirmedEmail = false;
-
 
             options.Setup(o => o.Value).Returns(idOptions);
             var userValidators = new List<IUserValidator<ApplicationUser>>();
@@ -94,3 +89,4 @@ namespace HR.LeaveManagement.Application.UnitTests.Services.Identity
         }
     }
 }
+
